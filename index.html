@@ -1,106 +1,164 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dear Diksha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ffe6ec, #fff5fa);
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(-45deg, #ffe6ec, #ffcde5, #fff5fa, #ffd1e8);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       min-height: 100vh;
-      text-align: center;
       overflow: hidden;
-      animation: bgShift 10s infinite alternate ease-in-out;
-    }@keyframes bgShift {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
+      text-align: center;
+    }
 
-.card {
-  background: white;
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  max-width: 600px;
-  margin: 1rem;
-  opacity: 0;
-  transform: scale(0.95);
-  animation: fadeInCard 1.2s ease-out forwards;
-}
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
 
-@keyframes fadeInCard {
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+    body::before, body::after {
+      content: "💖";
+      position: absolute;
+      font-size: 2rem;
+      animation: float 6s infinite ease-in-out;
+      opacity: 0.3;
+    }
 
-h1 {
-  color: #ff4f81;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
+    body::before {
+      left: 15%;
+      top: -10%;
+      animation-delay: 0s;
+    }
 
-p {
-  color: #444;
-  line-height: 1.6;
-  font-size: 1rem;
-}
+    body::after {
+      right: 15%;
+      bottom: -10%;
+      animation-delay: 3s;
+    }
 
-button {
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  background-color: #ff4f81;
-  color: white;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s;
-}
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 0.3; }
+      50% { transform: translateY(40vh); opacity: 0.6; }
+      100% { transform: translateY(0); opacity: 0.3; }
+    }
 
-button:hover {
-  background-color: #e64470;
-  transform: scale(1.05);
-}
+    .card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      animation: slideFade 1.5s ease-out forwards;
+      border: 2px dashed #ff4f81;
+      position: relative;
+      z-index: 10;
+    }
 
-.hidden-message {
-  margin-top: 1rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease;
-}
+    @keyframes slideFade {
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
 
-.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+    h1 {
+      color: #ff4f81;
+      font-size: 2.8rem;
+      font-family: 'Great Vibes', cursive;
+      margin-bottom: 0.5rem;
+      text-shadow: 1px 1px 4px rgba(255, 79, 129, 0.5);
+    }
 
-.typing {
-  border-right: 2px solid #ff4f81;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-  animation: typing 3s steps(40, end) forwards, blink 0.7s step-end infinite;
-}
+    p {
+      color: #444;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
 
-@keyframes typing {
-  to { width: 100%; }
-}
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      background-color: #ff4f81;
+      color: white;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      animation: pulse 2s infinite;
+    }
 
-@keyframes blink {
-  50% { border-color: transparent; }
-}
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 10px rgba(255, 79, 129, 0.4);
+    }
 
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .hidden-message {
+      margin-top: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2.typing {
+      border-right: 2px solid #ff4f81;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink 0.7s step-end infinite;
+      color: #e91e63;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    @keyframes typing {
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    #quoteBox {
+      margin-top: 1rem;
+      font-style: italic;
+      color: #e91e63;
+      font-size: 1.1rem;
+      transition: opacity 0.5s ease;
+    }
+
+    canvas#particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
+  <canvas id="particles"></canvas>
+
   <div class="card">
     <h1>To Diksha 🌸</h1>
     <p>
@@ -115,8 +173,114 @@ button:hover {
     <div id="message" class="hidden-message" aria-live="polite">
       <h2 class="typing">You are truly appreciated, Diksha 💖</h2>
       <p>Wishing you success, joy, and lifelong friendship!</p>
+      <div id="quoteBox"></div>
     </div>
-  </div>  <script>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+
+    let hearts = [];
+    for (let i = 0; i < 30; i++) {
+      hearts.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: 8 + Math.random() * 8,
+        d: Math.random() * 1,
+      });
+    }
+
+    function drawHearts() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      hearts.forEach(h => {
+        ctx.beginPath();
+        ctx.fillStyle = "#ff80ab";
+        ctx.globalAlpha = 0.4;
+        ctx.arc(h.x, h.y, h.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      moveHearts();
+    }
+
+    function moveHearts() {
+      hearts.forEach(h => {
+        h.y += h.d;
+        if (h.y > canvas.height) {
+          h.y = 0;
+          h.x = Math.random() * canvas.width;
+        }
+      });
+    }
+
+    setInterval(drawHearts, 40);
+
+    // Confetti
+    function triggerConfetti() {
+      const count = 80;
+      const colors = ['#ff4f81', '#ff80ab', '#ffd1e8', '#f8bbd0'];
+      let confetti = [];
+
+      for (let i = 0; i < count; i++) {
+        confetti.push({
+          x: canvas.width / 2,
+          y: canvas.height / 2,
+          r: Math.random() * 6 + 2,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          vx: (Math.random() - 0.5) * 8,
+          vy: Math.random() * -10 - 2,
+          alpha: 1
+        });
+      }
+
+      function animateConfetti() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawHearts();
+        confetti.forEach(c => {
+          ctx.globalAlpha = c.alpha;
+          ctx.beginPath();
+          ctx.fillStyle = c.color;
+          ctx.arc(c.x, c.y, c.r, 0, 2 * Math.PI);
+          ctx.fill();
+
+          c.x += c.vx;
+          c.y += c.vy;
+          c.vy += 0.2;
+          c.alpha -= 0.01;
+        });
+        confetti = confetti.filter(c => c.alpha > 0);
+        if (confetti.length > 0) requestAnimationFrame(animateConfetti);
+      }
+
+      animateConfetti();
+    }
+
+    // Quote Carousel
+    const quotes = [
+      "You're a ray of sunshine on cloudy days ☀️",
+      "Your determination is inspiring 💪",
+      "Friendship like yours is rare and beautiful 🌷",
+      "The world is brighter with you in it 💫"
+    ];
+    let quoteIndex = 0;
+    let quoteTimer;
+    const quoteBox = document.getElementById("quoteBox");
+
+    function startQuotes() {
+      quoteBox.innerText = quotes[0];
+      quoteIndex = 1;
+      quoteTimer = setInterval(() => {
+        quoteBox.style.opacity = 0;
+        setTimeout(() => {
+          quoteBox.innerText = quotes[quoteIndex];
+          quoteBox.style.opacity = 1;
+          quoteIndex = (quoteIndex + 1) % quotes.length;
+        }, 500);
+      }, 4000);
+    }
+
     function showMessage() {
       const message = document.getElementById("message");
       message.classList.add("show");
@@ -124,11 +288,16 @@ button:hover {
       h2.classList.remove("typing");
       void h2.offsetWidth;
       h2.classList.add("typing");
+      startQuotes();
+      triggerConfetti();
     }
 
     function resetMessage() {
       const message = document.getElementById("message");
       message.classList.remove("show");
+      clearInterval(quoteTimer);
+      quoteBox.innerText = '';
     }
-  </script></body>
+  </script>
+</body>
 </html>
