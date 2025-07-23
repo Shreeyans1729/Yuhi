@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dear Diksha</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fef6f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 1rem;
+}
+
+h1 {
+  color: #ff4f81;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: #444;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background-color: #ff4f81;
+  color: white;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e64470;
+}
+
+.hidden-message {
+  margin-top: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>To Diksha 🌸</h1>
+    <p>
+      We met first in Bijendra Public School, but you were in a separate section in class 8th.<br />
+      In class 9th, you moved to Kota, and I stayed back in Purnia.<br />
+      Then, fate brought us together again in class 11th in Kota.<br />
+      Since then, you've been an amazing friend, and now we're preparing for JEE together.
+    </p>
+    <p><strong>Thank you for being such a kind and true friend ❤️</strong></p>
+    <button onclick="showMessage()">Click for a Surprise ✨</button>
+    <div id="message" class="hidden-message">
+      <h2>You are truly appreciated, Diksha 💖</h2>
+      <p>Wishing you success, joy, and lifelong friendship!</p>
+    </div>
+  </div>  <script>
+    function showMessage() {
+      document.getElementById("message").classList.add("show");
+    }
+  </script></body>
+</html>
